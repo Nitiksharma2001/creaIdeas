@@ -17,6 +17,7 @@ export default function Navbar() {
                             <a>Projects</a>
                             <ul className="p-2">
                                 <li><Link to='/cascading-filter'>Cascading Filters</Link></li>
+                                <li><Link to='/request-bar'>Request Bar</Link></li>
                             </ul>
                         </li>
                     </ul>
@@ -30,6 +31,7 @@ export default function Navbar() {
                             <summary>Projects</summary>
                             <ul className="p-2">
                                 <li><Link to='/cascading-filter' className='text-nowrap'>Cascading Filters</Link></li>
+                                <li><Link to='/request-bar' className='text-nowrap'>Request Bar</Link></li>
                             </ul>
                         </details>
                     </li>
