@@ -1,45 +1,28 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef } from 'react'
+import useRequestBar from './hooks/useRequestBar'
 
 export default function RequestBar() {
-  const [currenPercentage, setCurrentPercentage] = useState(0)
-  const [isApiRequestDone, setIsApiRequestDone] = useState(false)
-  const [requestTimeRandom, setRequestTimeRandom] = useState(0)
-  let id = useRef()
+
+  const { percentageElapsed, updateApiStatus } = useRequestBar()
+
+  const apiTime = useRef()
 
   useEffect(() => {
 
-    let time = Math.ceil(Math.random()*5000)
-    setRequestTimeRandom(time)
+    updateApiStatus(true)
+    apiTime.current = Math.ceil(Math.random() * 5000)
 
     setInterval(() => {
-      setIsApiRequestDone(true)
-    }, time);
-
-    id.current = setInterval(() => {
-      setCurrentPercentage(prevPercentage => {
-        if (prevPercentage >= 70) {
-          return prevPercentage
-        }
-        return prevPercentage + 5
-      })
-    }, 250)
+      updateApiStatus(false)
+    }, apiTime.current)
 
   }, [])
 
-  useEffect(() => {
-
-    if (isApiRequestDone) {
-      clearInterval(id.current)
-      setCurrentPercentage(100)
-      return
-    }
-
-  }, [currenPercentage, isApiRequestDone])
   return (
     <div className='flex flex-col gap-4 justify-center items-center h-full'>
-      {requestTimeRandom/1000} secs
-      <div className="radial-progress " style={{ "--value": currenPercentage,  "--size": "12rem", "--thickness": "10px" }} role="progressbar">
-        {currenPercentage}
+      {Math.ceil(apiTime.current / 1000)}
+      <div className="radial-progress " style={{ "--value": percentageElapsed, "--size": "12rem", "--thickness": "10px" }} role="progressbar">
+        {percentageElapsed}
       </div>
     </div>
   )
