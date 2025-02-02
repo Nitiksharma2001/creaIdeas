@@ -20,7 +20,7 @@ export default function RequestBar() {
 
   return (
     <div className='flex flex-col gap-4 justify-center items-center h-full'>
-      {Math.ceil(apiTime.current / 1000)}
+      API Request Time: {Math.ceil(apiTime.current / 1000)} sec
       <div className="radial-progress " style={{ "--value": percentageElapsed, "--size": "12rem", "--thickness": "10px" }} role="progressbar">
         {percentageElapsed}
       </div>
