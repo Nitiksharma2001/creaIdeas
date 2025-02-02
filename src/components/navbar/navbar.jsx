@@ -18,6 +18,7 @@ export default function Navbar() {
                             <ul className="p-2">
                                 <li><Link to='/cascading-filter'>Cascading Filters</Link></li>
                                 <li><Link to='/request-bar'>Request Bar</Link></li>
+                                <li><Link to='/infinite-scroll' className='text-nowrap'>Infinite Scroll</Link></li>
                             </ul>
                         </li>
                     </ul>
@@ -32,6 +33,7 @@ export default function Navbar() {
                             <ul className="p-2">
                                 <li><Link to='/cascading-filter' className='text-nowrap'>Cascading Filters</Link></li>
                                 <li><Link to='/request-bar' className='text-nowrap'>Request Bar</Link></li>
+                                <li><Link to='/infinite-scroll' className='text-nowrap'>Infinite Scroll</Link></li>
                             </ul>
                         </details>
                     </li>
