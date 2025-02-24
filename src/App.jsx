@@ -1,28 +1,15 @@
 import './App.css'
+import React from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import CascadingFilter from './pages/cascading-filter/cascading-filter'
-import Navbar from './components/navbar/navbar'
-import Footer from './components/footer/footer'
-import RequestBar from './pages/request-bar/request-bar'
-import InfiniteScroll from './pages/infinte-scroll/infinite-scroll'
-
-function App() {
-  return <div className='flex flex-col h-screen'><RouterHeader /></div>
-}
-
-function RouterHeader() {
-  return <BrowserRouter>
-    <Navbar />
-    <div className='flex-1 p-2'>
+import { routes } from './routes'
+export default function RouterHeader() {
+  return (
+    <BrowserRouter>
       <Routes>
-        <Route path="/cascading-filter" element={<CascadingFilter />} />
-        <Route path="/request-bar" element={<RequestBar />} />
-        <Route path="/infinite-scroll" element={<InfiniteScroll />} />
+        {routes.map((page, i) => (
+          <Route key={i} path={`/${page.route}`} element={page.component} />
+        ))}
       </Routes>
-    </div>
-    <Footer />
-  </BrowserRouter>
+    </BrowserRouter>
+  )
 }
-
-
-export default App
