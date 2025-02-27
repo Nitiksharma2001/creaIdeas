@@ -2,7 +2,7 @@ import React from 'react'
 import Home from './pages/home/home'
 import InfiniteScroll from './pages/infinte-scroll/infinite-scroll'
 import RequestBar from './pages/request-bar/request-bar'
-import ChessBoard from './pages/chess/chess'
+import ChessMain from './pages/chess/chess_main'
 
 export const routes = [
   {
@@ -13,7 +13,7 @@ export const routes = [
   {
     name: 'chess',
     route: 'chess',
-    component: <ChessBoard />,
+    component: <ChessMain />,
   },
   {
     name: 'request bar',
