@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-const PIECES_FOLDER = '/src/assets/classic-pieces/'
+const PIECES_FOLDER = '/assets/classic-pieces/'
 
 export default function ChessBoard({ chess, onChessMove, color }) {
   const [chessBoard, setChessBoard] = useState(chess.fen())
